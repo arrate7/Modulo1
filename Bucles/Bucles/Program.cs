@@ -47,24 +47,50 @@ namespace Bucles
             //Console.WriteLine("La media de los numeros introducido es: " + suma / 10.0);
 
             //Ejercicio 4
-            int total = 0;
-            int numero;
+            //int total = 0;
+            //int numero;
+            //do
+            //{
+            //    Console.WriteLine("introduce un numero");
+            //    numero = Convert.ToInt32(Console.ReadLine());
+            //    if (numero < 0)
+            //    {
+            //        Console.WriteLine("Se ignoran los valores negativos");
+            //    }
+            //    else
+            //    {
+            //        total += numero;
+            //    }
+            //}
+            //while (numero != 0);
+
+            //Console.WriteLine(total);
+          
+            //Ejercicio 5
+
+            string answer;
             do
             {
-                Console.WriteLine("introduce un numero");
-                numero = Convert.ToInt32(Console.ReadLine());
-                if (numero < 0)
+                Console.WriteLine("Pulse la tecla ``P´´ para explorar los valores pares del 1 al 100, e ``I´´ para los impares");
+                answer = Console.ReadLine().ToUpper();
+
+            } while (answer != "P" && answer != "I");
+
+            if (answer == "P")
+            {
+                for (int i = 0; i <= 100; i += 2)
                 {
-                    Console.WriteLine("Se ignoran los valores negativos");
-                }
-                else
-                {
-                    total += numero;
+                    Console.WriteLine(i);
                 }
             }
-            while (numero != 0);
+            if (answer == "I")
+            {
+                for (int i = 1; i <= 100; i += 2)
+                {
+                    Console.WriteLine(i);
+                }
+            }
 
-            Console.WriteLine(total);
         }
     }
 }
