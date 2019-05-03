@@ -128,49 +128,7 @@ namespace Bucles
             //    Console.WriteLine(asterisco);
             //}
 
-            bool passCorrecta = false;
-            bool numeros = false;
-            string pass = "";
-            do
-            {
-                Console.WriteLine("Introduce una contraseña:");
-                pass = Console.ReadLine();
-
-                if (pass.Length >= 8)
-                {
-                    for (int i = 0; i < pass.Length; i++)
-                    {
-                        if (char.IsDigit(Convert.ToChar(pass.Substring(i, 1))))
-                        {
-                            numeros = true;
-                        }                   
-                    }
-
-                    if (numeros)
-                    {
-                        if(char.IsUpper(Convert.ToChar(pass.Substring(0, 1))))
-                        {
-                            passCorrecta = true;
-                            Console.WriteLine("Contraseña correcta");
-                        }
-                        else
-                        {
-                            Console.WriteLine("La primera letra tiene que ser mayúsculas");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("La contraseña debe contener números");
-                    }
-
-                }
-                else
-                {
-                    Console.WriteLine("La contraseña tiene que tener una largura mínima de 8 caracteres.");
-                }
-
-
-            } while (!passCorrecta);
+ 
         }
     }
 }
