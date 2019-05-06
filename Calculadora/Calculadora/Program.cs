@@ -238,6 +238,9 @@ namespace Calculadora
 
             } while (!salir);
 
+            string[] animales = { "gato","perro"};
+            
+            
         }
 
     }
