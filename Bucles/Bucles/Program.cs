@@ -128,7 +128,99 @@ namespace Bucles
             //    Console.WriteLine(asterisco);
             //}
 
- 
+            ///////////////////////Ejercicio 12
+            ///VERSIÓN ELENA
+            //int x;
+            //int number = 0;
+            //do
+            //{
+            //    Console.WriteLine("Introduzca la contraseña");
+            //    x = 0;
+            //    string password = Console.ReadLine();
+
+            //    if (password.Length < 8)
+            //    {
+            //        Console.WriteLine("La contraseña debe tener más de 8 dígitos" + "\n");
+            //        x++;
+
+            //    }
+            //    else 
+            //    {
+            //        if (!char.IsUpper(Convert.ToChar(password.Substring(0, 1))))
+            //        {
+            //            Console.WriteLine("La contraseña debe contener una mayúscula en primera posición" + "\n");
+            //            x++;
+            //        }
+            //        else 
+            //        {
+            //            for (int i = 0; i < password.Length; i++)
+            //            {
+            //                if (char.IsDigit(Convert.ToChar(password.Substring(i, 1))))
+            //                {
+            //                    number += 1;
+            //                }
+            //            }
+            //            if (number == 0)
+            //            {
+            //                Console.WriteLine("La contraseña debe tener al menos un número " + "\n");
+            //                x = (x + 1);
+            //            }
+            //        }
+            //    }
+
+            //} while (x != 0);
+            //Console.WriteLine("Enhorabuena, la contraseña es adecuada");
+
+
+            ///////////////////////Ejercicio 12
+            ///VERSIÓN ARRATE
+            //bool correcto = false;
+            //bool numeroEncontrado = false;
+
+            //do
+            //{
+
+            //    Console.WriteLine("Introduce una contraseña:");
+            //    string pass = Console.ReadLine();
+
+            //    if (pass.Length < 8)
+            //    {
+            //        Console.WriteLine("La contraseña tiene que contener al menos 8 caracteres ");
+            //    }
+            //    else
+            //    {
+            //        for(int i = 1; i < pass.Length; i++)
+            //        {
+            //            if (char.IsDigit(Convert.ToChar(pass.Substring(i, 1))))
+            //            {
+            //                numeroEncontrado = true;
+            //            }
+            //        }
+
+            //        if (numeroEncontrado)
+            //        {
+
+            //            if (char.IsUpper(Convert.ToChar(pass.Substring(0, 1))))
+            //            {
+            //                correcto = true;
+
+            //            }
+            //            else
+            //            {
+            //                Console.WriteLine("La primera letra de la contraseña debe estar en mayúsculas");
+            //            }
+
+            //        }
+            //        else
+            //        {
+            //            Console.WriteLine("La contraseña necesita un número");
+            //        }
+
+
+            //    }
+            //} while (!correcto);
+
+            //Console.WriteLine("Contraseña correcta");
         }
     }
 }
