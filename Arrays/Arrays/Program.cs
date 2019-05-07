@@ -133,59 +133,49 @@ namespace Arrays
 
 
             ///////////////////EJERCICIO 7
-            int[] num = new int[10];
-            double suma = 0;
+            //int[] num = new int[10];
+            //double suma = 0;
 
-            for (int i = 0; i < num.Length; i++)
+            //for (int i = 0; i < num.Length; i++)
+            //{
+            //    Console.WriteLine("introduce un valor");
+            //    num[i] = Convert.ToInt32(Console.ReadLine());
+            //}
+
+            //for (int i = 0; i < num.Length; i++)
+            //{
+            //    suma += num[i];
+            //}
+
+            //Console.WriteLine("La media de los valores: " + suma / num.Length);
+
+            int[] number = new int[11];
+            int i = 0;
+
+            do
             {
-                Console.WriteLine("introduce un valor");
-                num[i] = Convert.ToInt32(Console.ReadLine());
-            }
-
-            for (int i = 0; i < num.Length; i++)
-            {
-                suma += num[i];
-            }
-
-            Console.WriteLine("La media de los valores: " + suma / num.Length);
-
-            //Ordenar un array de 5 strings alfabéticamente:
-            //            Utilizar función.
-            //               Sin función.
-            string[] abc = { "", "", "", "", "" };
-            string[] ordenado = { "", "", "", "", "" };
-
-            for (int i = 0; i < abc.Length; i++)
-            {
-                Console.WriteLine("introduce una letra");
-                abc[i] = Console.ReadLine().ToLower();
-            }
-            //Array.Sort(abc);
-            
-            string smallest = abc[0];
-            int j = 0;
-            for (int i = 0; i < abc.Length; i++)
-            {
-                if (Convert.ToChar(abc[i].Substring(0, 1)) < Convert.ToChar(smallest.Substring(0, 1)))
+                Console.WriteLine("Introduce valores entre el 0 y 10, presione -1 para salir");
+                i = Convert.ToInt32(Console.ReadLine());
+                if (i >= 0 && i < number.Length)
                 {
-                    smallest = abc[i];
-                    ordenado[j] = smallest;
-                    j++;
+                    number[i]++;
+
                 }
                 else
                 {
-                    smallest = abc[i];
-                    //  i--;
+                    Console.WriteLine("El valor no es válido");
                 }
-            }
 
-            for (int i = 0; i < abc.Length; i++)
+            } while (i >= 0);
+
+            for (int j = 0; j < number.Length; j++)
             {
-                Console.WriteLine(abc[i]);
+                Console.WriteLine(j + "\t" + number[j]);
             }
-
-
 
         }
     }
 }
+
+
+ 
