@@ -202,9 +202,63 @@ namespace Arrays
             //    Console.Write("   ");
             //    Console.WriteLine(valores[i]);
             //}
+
+
+
+            Console.WriteLine("Ejercicio 10");
+            //const int NUMALUMNOS = 20;
+            //int[] alumnos = new int[NUMALUMNOS];
+            //int identificador = 1;
+            //int edadTotal = 0;
+
+            //for (int i = 0; i < NUMALUMNOS; i++)
+            //{
+            //    int edad = 0;
+            //    do
+            //    {
+            //        Console.WriteLine("Introduce tu edad, alumno " + identificador);
+            //        edad = Convert.ToInt32(Console.ReadLine());
+
+            //        if (edad < 18 || edad > 35)
+            //        {
+            //            Console.WriteLine("Edad incorrecta");
+            //        }
+
+            //    } while (edad < 18 || edad > 35);
+
+
+            //    alumnos[i] = edad;
+
+
+            //    identificador++;
+            //}
+            //for (int i = 0; i < NUMALUMNOS; i++)
+            //{
+            //    edadTotal += alumnos[i];
+            //}
+            //Console.WriteLine("La media de edad de la clase es igual a " + edadTotal / NUMALUMNOS);
+
+            const int NUMALUMNOS = 20;
+            int[] alumnos = new int[NUMALUMNOS];
+            double edadTotal = 0;
+            //Instanciar la clase Random 
+            Random random = new Random();
+
+            for (int i = 0; i < NUMALUMNOS; i++)
+            {
+                int num = random.Next(18,36);
+                alumnos[i] = num;
+            }
+
+            for (int i = 0; i < NUMALUMNOS; i++)
+            {
+                edadTotal += alumnos[i];
+            }
+            Console.WriteLine("La media de edad de la clase es igual a " + edadTotal / NUMALUMNOS);
         }
+
+
     }
 }
 
 
- 
