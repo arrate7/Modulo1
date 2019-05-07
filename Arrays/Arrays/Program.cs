@@ -88,25 +88,45 @@ namespace Arrays
 
             ////EJERCICIO 5
 
-            int[] numbers = new int[3]; //new int because we dont know what the user is going to put
+            //int[] numbers = new int[3]; //new int because we dont know what the user is going to put
 
 
-            for (int i = 0; i < numbers.Length; i++)
+            //for (int i = 0; i < numbers.Length; i++)
+            //{
+            //    Console.WriteLine("enter a number: ");
+            //    numbers[i] = Convert.ToInt32(Console.ReadLine());
+            //}
+
+            //int smallestNumber = numbers[0]; 
+
+            //for (int i = 0; i < numbers.Length; i++)
+            //{
+            //    if (numbers[i] < smallestNumber) // 
+            //    {
+            //        smallestNumber = numbers[i];
+            //    }
+            //}
+            //Console.WriteLine("The smallest number is " + smallestNumber);
+
+            string[] meses = { "Enero", "Febrero", "Marzo", "Abril",
+                "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
+                "Octubre", "Noviembre", "Diciembre" };
+
+            Console.WriteLine("introduce un numero de mes para ver " +
+                "a que mes corresponde");
+
+            int numeroDeMes = Convert.ToInt32(Console.ReadLine());
+
+            if (numeroDeMes >= 1 && numeroDeMes <= 12)
             {
-                Console.WriteLine("enter a number: ");
-                numbers[i] = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine(meses[numeroDeMes - 1]);
+
             }
-
-            int smallestNumber = numbers[0]; 
-
-            for (int i = 0; i < numbers.Length; i++)
+            else
             {
-                if (numbers[i] < smallestNumber) // 
-                {
-                    smallestNumber = numbers[i];
-                }
+                Console.WriteLine("El número introducido no es correcto");
+
             }
-            Console.WriteLine("The smallest number is " + smallestNumber);
 
 
 
