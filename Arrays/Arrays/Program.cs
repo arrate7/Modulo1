@@ -132,7 +132,7 @@ namespace Arrays
             //}
 
 
-
+            ///////////////////EJERCICIO 7
             int[] num = new int[10];
             double suma = 0;
 
