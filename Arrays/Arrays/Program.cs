@@ -243,7 +243,7 @@ namespace Arrays
             double edadTotal = 0;
             //Instanciar la clase Random 
             Random random = new Random();
-
+            //
             for (int i = 0; i < NUMALUMNOS; i++)
             {
                 int num = random.Next(18,36);
