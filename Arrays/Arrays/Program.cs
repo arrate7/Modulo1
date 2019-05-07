@@ -108,28 +108,46 @@ namespace Arrays
             //}
             //Console.WriteLine("The smallest number is " + smallestNumber);
 
-            string[] meses = { "Enero", "Febrero", "Marzo", "Abril",
-                "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
-                "Octubre", "Noviembre", "Diciembre" };
 
-            Console.WriteLine("introduce un numero de mes para ver " +
-                "a que mes corresponde");
+            //////////////EJERCICIO 6
 
-            int numeroDeMes = Convert.ToInt32(Console.ReadLine());
+            //string[] meses = { "Enero", "Febrero", "Marzo", "Abril",
+            //    "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
+            //    "Octubre", "Noviembre", "Diciembre" };
 
-            if (numeroDeMes >= 1 && numeroDeMes <= 12)
+            //Console.WriteLine("introduce un numero de mes para ver " +
+            //    "a que mes corresponde");
+
+            //int numeroDeMes = Convert.ToInt32(Console.ReadLine());
+
+            //if (numeroDeMes >= 1 && numeroDeMes <= 12)
+            //{
+            //    Console.WriteLine(meses[numeroDeMes - 1]);
+
+            //}
+            //else
+            //{
+            //    Console.WriteLine("El número introducido no es correcto");
+
+            //}
+
+
+
+            int[] num = new int[10];
+            double suma = 0;
+
+            for (int i = 0; i < num.Length; i++)
             {
-                Console.WriteLine(meses[numeroDeMes - 1]);
-
+                Console.WriteLine("introduce un valor");
+                num[i] = Convert.ToInt32(Console.ReadLine());
             }
-            else
+
+            for (int i = 0; i < num.Length; i++)
             {
-                Console.WriteLine("El número introducido no es correcto");
-
+                suma += num[i];
             }
 
-
-
+            Console.WriteLine("La media de los valores: " + suma/num.Length);
 
 
 
