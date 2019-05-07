@@ -147,8 +147,42 @@ namespace Arrays
                 suma += num[i];
             }
 
-            Console.WriteLine("La media de los valores: " + suma/num.Length);
+            Console.WriteLine("La media de los valores: " + suma / num.Length);
 
+            //Ordenar un array de 5 strings alfabéticamente:
+            //            Utilizar función.
+            //               Sin función.
+            string[] abc = { "", "", "", "", "" };
+            string[] ordenado = { "", "", "", "", "" };
+
+            for (int i = 0; i < abc.Length; i++)
+            {
+                Console.WriteLine("introduce una letra");
+                abc[i] = Console.ReadLine().ToLower();
+            }
+            //Array.Sort(abc);
+            
+            string smallest = abc[0];
+            int j = 0;
+            for (int i = 0; i < abc.Length; i++)
+            {
+                if (Convert.ToChar(abc[i].Substring(0, 1)) < Convert.ToChar(smallest.Substring(0, 1)))
+                {
+                    smallest = abc[i];
+                    ordenado[j] = smallest;
+                    j++;
+                }
+                else
+                {
+                    smallest = abc[i];
+                    //  i--;
+                }
+            }
+
+            for (int i = 0; i < abc.Length; i++)
+            {
+                Console.WriteLine(abc[i]);
+            }
 
 
 
