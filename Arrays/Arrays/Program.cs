@@ -43,24 +43,76 @@ namespace Arrays
             //Console.WriteLine("Palabras:" + palabras[1] + " " + 
             //    palabras[2] + ", " + palabras[0]);
 
-            ///////////////////////EJERCICIO 3
-            ///
-            int[] numeros = new int[10];
+            /////////////////////////EJERCICIO 3
+            /////
+            //int[] numeros = new int[10];
 
-            int j = 20;
+            //int j = 20;
 
-            for (int i = 0; i < numeros.Length; i++)
-            {
-                numeros[i] = j;
-                j--;
-            }
+            //for (int i = 0; i < numeros.Length; i++)
+            //{
+            //    numeros[i] = j;
+            //    j--;
+            //}
 
-            for (int i = 0; i < numeros.Length; i++)
-            {
-                Console.WriteLine(numeros[i]);
-            }
+            //for (int i = 0; i < numeros.Length; i++)
+            //{
+            //    Console.WriteLine(numeros[i]);
+            //}
 
             //Console.WriteLine(numeros[i]);
+
+            ////EJERCICIO 4
+
+            /* Crear un array de 3 ints. Usar un for para pedir al usuario que 
+             * introduzca valores a cada una de las posiciones. Usar otro for 
+             * para mostrarlos en pantalla.
+             */
+            // creado el array con 3 huecos
+            //int[] numeros = new int[2];
+
+            //// por cada valor en el array le pedimos un numero al usuario y guardarlo
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    Console.WriteLine("Introduce un número:");
+            //    numeros[i] = Convert.ToInt32(Console.ReadLine());
+            //}
+
+
+            //// por cada valor en el array mostralo en pantalla
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    Console.WriteLine(numeros[i]);
+            //}
+
+
+            ////EJERCICIO 5
+
+            int[] numbers = new int[3]; //new int because we dont know what the user is going to put
+
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Console.WriteLine("enter a number: ");
+                numbers[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            int smallestNumber = numbers[0]; 
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (numbers[i] < smallestNumber) // 
+                {
+                    smallestNumber = numbers[i];
+                }
+            }
+            Console.WriteLine("The smallest number is " + smallestNumber);
+
+
+
+
+
+
 
         }
     }
