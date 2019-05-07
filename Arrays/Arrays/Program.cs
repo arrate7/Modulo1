@@ -149,30 +149,56 @@ namespace Arrays
 
             //Console.WriteLine("La media de los valores: " + suma / num.Length);
 
-            int[] number = new int[11];
-            int i = 0;
+            //int[] number = new int[11];
+            //int i = 0;
+
+            //do
+            //{
+            //    Console.WriteLine("Introduce valores entre el 0 y 10, presione -1 para salir");
+            //    i = Convert.ToInt32(Console.ReadLine());
+            //    if (i >= 0 && i < number.Length)
+            //    {
+            //        number[i]++;
+
+            //    }
+            //    else
+            //    {
+            //        Console.WriteLine("El valor no es válido");
+            //    }
+
+            //} while (i >= 0);
+
+            //for (int j = 0; j < number.Length; j++)
+            //{
+            //    Console.WriteLine(j + "\t" + number[j]);
+            //}
+
+            int[] valores = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+            int numeroDelUsuario;
 
             do
             {
-                Console.WriteLine("Introduce valores entre el 0 y 10, presione -1 para salir");
-                i = Convert.ToInt32(Console.ReadLine());
-                if (i >= 0 && i < number.Length)
+                Console.WriteLine("introduce un numero del 0 al 9");
+                numeroDelUsuario = Convert.ToInt32(Console.ReadLine());
+
+                if (numeroDelUsuario >= 0 && numeroDelUsuario <= 9)
                 {
-                    number[i]++;
-
+                    valores[numeroDelUsuario] *= 2;
+                    Console.WriteLine(valores[numeroDelUsuario]);
                 }
-                else
+                else if (numeroDelUsuario > 9)
                 {
-                    Console.WriteLine("El valor no es válido");
+                    Console.WriteLine("número incorrecto!!!");
                 }
 
-            } while (i >= 0);
+            } while (numeroDelUsuario >= 0);
 
-            for (int j = 0; j < number.Length; j++)
+            for (int i = 0; i < valores.Length; i++)
             {
-                Console.WriteLine(j + "\t" + number[j]);
+                Console.Write(i);
+                Console.Write("   ");
+                Console.WriteLine(valores[i]);
             }
-
         }
     }
 }
