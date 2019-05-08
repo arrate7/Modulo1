@@ -13,6 +13,7 @@ namespace Ejercicio4
             int resultado = Suma(num1, num2);
 
             Console.WriteLine(resultado);
+            
         }
 
         public static int Suma(int num1, int num2)
