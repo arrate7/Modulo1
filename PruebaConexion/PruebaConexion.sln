@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaConexion", "PruebaConexion\PruebaConexion.csproj", "{EAC8646D-EA9D-45AD-B57C-95E446F16AC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EjercicioSqlClase", "EjercicioSqlClase\EjercicioSqlClase.csproj", "{6291B520-6E5A-4DAA-9C3C-E9DCE9BD6308}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAC8646D-EA9D-45AD-B57C-95E446F16AC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC8646D-EA9D-45AD-B57C-95E446F16AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC8646D-EA9D-45AD-B57C-95E446F16AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC8646D-EA9D-45AD-B57C-95E446F16AC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6291B520-6E5A-4DAA-9C3C-E9DCE9BD6308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6291B520-6E5A-4DAA-9C3C-E9DCE9BD6308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6291B520-6E5A-4DAA-9C3C-E9DCE9BD6308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6291B520-6E5A-4DAA-9C3C-E9DCE9BD6308}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF8A25C8-A2A4-4075-9A00-EFF59B0F140A}
+	EndGlobalSection
+EndGlobal
