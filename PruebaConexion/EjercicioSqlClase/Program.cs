@@ -5,11 +5,10 @@ namespace EjercicioSqlClase
 {
     class Program
     {
+        static SqlConnection connection = new SqlConnection("Data source=DESKTOP-QEAKD04\\SQLEXPRESS;Initial Catalog=VARIOS;Integrated Security=True");
+
         static void Main(string[] args)
         {
-
-            SqlConnection connection = new SqlConnection("Data source=DESKTOP-QEAKD04\\SQLEXPRESS;Initial Catalog=VARIOS;Integrated Security=True");
-
             //Console.WriteLine("Introduce el apellido:");
             //string apellido = Console.ReadLine();
             //Console.WriteLine("Introduce el oficio:");
@@ -63,6 +62,11 @@ namespace EjercicioSqlClase
 
             Console.WriteLine(registros[0].ToString() + " " + registros[1].ToString() + " " + registros[2].ToString() + " " + registros[3].ToString() + " " + registros[4].ToString());
 
+        }
+
+        public static void Algo()
+        {
+            connection
         }
     }
 }
