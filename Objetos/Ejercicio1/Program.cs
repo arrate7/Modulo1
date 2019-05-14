@@ -6,7 +6,11 @@ namespace Ejercicio1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Finanzas euros = new Finanzas(40);
+            Finanzas dolares = new Finanzas(120);
+             
+            Console.WriteLine(euros.GetDinero() + " euros son " +  euros.EurosToDolares() + " dolares");
+            Console.WriteLine(dolares.GetDinero() + " dolares son " +  dolares.DolaresToEuros() + " euros");
         }
     }
 }
