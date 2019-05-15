@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Objetos", "Objetos\Objetos.csproj", "{24E4CAA2-6ECB-44AD-B3B8-D7B25C1B89E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Objetos", "Objetos\Objetos.csproj", "{24E4CAA2-6ECB-44AD-B3B8-D7B25C1B89E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio1", "Ejercicio1\Ejercicio1.csproj", "{0E62912C-97D8-4146-9B6E-73EF0BF70EA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ejercicio1", "Ejercicio1\Ejercicio1.csproj", "{0E62912C-97D8-4146-9B6E-73EF0BF70EA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjetoRectangulo", "ObjetoRectangulo\ObjetoRectangulo.csproj", "{5931ABF0-6D78-4DEB-A21C-071CB8D27119}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObjetoRectangulo", "ObjetoRectangulo\ObjetoRectangulo.csproj", "{5931ABF0-6D78-4DEB-A21C-071CB8D27119}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ejercicio2", "Ejercicio2\Ejercicio2.csproj", "{1F65D8D8-E9F0-471E-9AC9-2FB289A8E02C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{5931ABF0-6D78-4DEB-A21C-071CB8D27119}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5931ABF0-6D78-4DEB-A21C-071CB8D27119}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5931ABF0-6D78-4DEB-A21C-071CB8D27119}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F65D8D8-E9F0-471E-9AC9-2FB289A8E02C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F65D8D8-E9F0-471E-9AC9-2FB289A8E02C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F65D8D8-E9F0-471E-9AC9-2FB289A8E02C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F65D8D8-E9F0-471E-9AC9-2FB289A8E02C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
