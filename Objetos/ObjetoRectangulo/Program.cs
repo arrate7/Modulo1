@@ -6,28 +6,21 @@ namespace ObjetoRectangulo
     {
         static void Main(string[] args)
         {
-            //Persona persona1 = new Persona("Iker", 39);
+            Rectangulo rec1 = new Rectangulo();
+            Console.WriteLine("Anchura: " + rec1.GetAnchura());
+            Console.WriteLine("Altura: " + rec1.GetAltura());
 
-            //Persona persona2 = new Persona();
-            //persona2.nombre = "Jon";
-            //persona2.edad = 92;
-
-            //Console.WriteLine(persona1.nombre);
-            Random random = new Random();
-            for(int i = 0; i < 10; i++)
+            if (rec1.EsAlargado())
             {
-                Rectangulo r = new Rectangulo(random.Next(), random.Next());
-                if (r.EsAlargado())
-                {
-                    Console.WriteLine("Es alargado");
-                }
-                else
-                {
-                    Console.WriteLine("No es alargado");
-                }
+                Console.WriteLine("El rectángulo es alargado");
             }
-            
-            //Console.WriteLine(rectangulo2.anchura);
+            else
+            {
+                Console.WriteLine("El rectángulo no es alargado");
+
+            }
+
+            rec1.Dibuja();
         }
     }
 }

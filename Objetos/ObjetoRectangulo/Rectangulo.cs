@@ -6,10 +6,16 @@ namespace ObjetoRectangulo
 {
     class Rectangulo
     {
-        public int altura;
+        private int altura;
         private int anchura;
 
-        public Rectangulo() {}
+        public Rectangulo()
+        {
+            Console.WriteLine("Introduce la altura:");
+            altura = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Introduce la anchura:");
+            anchura = Convert.ToInt32(Console.ReadLine());
+        }
 
         public Rectangulo(int altura, int anchura)
         {
@@ -17,22 +23,31 @@ namespace ObjetoRectangulo
             this.anchura = anchura;
         }
 
-        public void SetAnchura(int anchura)
+
+        public int GetAltura()
         {
-            if(anchura > 0)
-            {
-                this.anchura = anchura;
-            }
-            else
-            {
-                Console.WriteLine("La anchura debe ser mayor que 0");
-            }
+            return altura;
+        }
+
+        public void SetAltura(int altura)
+        {
+            this.altura = altura;
+        }
+
+
+        public int GetAnchura()
+        {
+            return anchura;
+        }
+
+        public void SetAnchura(int altura)
+        {
+            this.altura = altura;
         }
 
         public bool EsAlargado()
         {
-            Console.Write("La altura es " + this.altura + " y la anchura: " + this.anchura + " ... ");
-            if(this.anchura >= this.altura * 2)
+            if(altura >= (anchura * 2))
             {
                 return true;
             }
@@ -41,5 +56,45 @@ namespace ObjetoRectangulo
                 return false;
             }
         }
+
+        public void Dibuja()
+        {
+            for (int i = 0; i < altura; i++)
+            {
+                for (int j = 0; j < anchura; j++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+        }
+
+
+
+
+        //public void SetAnchura(int anchura)
+        //{
+        //    if(anchura > 0)
+        //    {
+        //        this.anchura = anchura;
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("La anchura debe ser mayor que 0");
+        //    }
+        //}
+
+        //public bool EsAlargado()
+        //{
+        //    Console.Write("La altura es " + this.altura + " y la anchura: " + this.anchura + " ... ");
+        //    if(this.anchura >= this.altura * 2)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
     }
 }
