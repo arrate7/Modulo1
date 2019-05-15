@@ -145,6 +145,17 @@ namespace HotelArrate
             if (DNIExiste(dni))
             {
                 PrintHabitaciones();
+                int idHabitacion = Convert.ToInt32(Console.ReadLine());
+
+                //Si la habitación está disponible y existe
+                if (HabitacionDisponible(idHabitacion))
+                {
+                    //Paso a Ocuparla
+                    OcuparHabitacion(idHabitacion);
+                    //Y hago la reserva
+                    Reservar(dni, idHabitacion);
+                }
+
             }
             else
             {
@@ -162,8 +173,65 @@ namespace HotelArrate
             SqlDataReader registros = command.ExecuteReader();
             while (registros.Read())
             {
-                Console.WriteLine(registros[0].ToString());
+                Console.WriteLine(registros[0].ToString() + "     " + registros[0].ToString());
+            }
+            Console.WriteLine("******************************************************");
+            Console.WriteLine("Selecciona una habitación:  ");
+            Console.WriteLine();
+
+        }
+        public static bool HabitacionDisponible(int idHabitacion)
+        {
+            string query = "SELECT * FROM HABITACIONES WHERE ESTADO LIKE 'Libre' And ID = " + idHabitacion;
+            connection.Open();
+            SqlCommand command = new SqlCommand(query,connection);
+            SqlDataReader registros = command.ExecuteReader();
+            if (registros.Read())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
+        public static void OcuparHabitacion(int idHabitacion)
+        {
+            connection.Open();
+            string query = "UPDATE Habitaciones SET Estado = 'Ocupado'WHERE ID = " + idHabitacion;
+            SqlCommand comando = new SqlCommand(query, connection);
+            comando.ExecuteNonQuery();
+            connection.Close();
+        }
+        public static void Reservar(string dni, int idHabitacion)
+        {
+            //No puedo hacer una reserva con el dni del cliente, necesito su id por lo tanto tengo que hacer una busqueda en la BBDD
+            int idCliente = BuscarIdCliente(dni);
+            //Una vez tenga los datos que necesito hago el insert
+            connection.Open();
+            string query = "INSERT INTO Reservas(IDCliente, IDHabitacion, FechaChecking)VALUES(" + idCliente + "," + idHabitacion + ", GETDATE())";
+            SqlCommand comando = new SqlCommand(query, connection);
+            comando.ExecuteNonQuery();
+            connection.Close();
+            Console.WriteLine("Reserva realizada");
+            Menu();
+
+        }
+        public static int BuscarIdCliente(string dni)
+        {
+            connection.Open();
+            string query = " SELECT ID FROM Clientes WHERE Dni LIKE '" + dni + "'";
+            SqlCommand comando = new SqlCommand(query, connection);
+            SqlDataReader registros = comando.ExecuteReader();
+            registros.Read();
+            int idCliente = Convert.ToInt32(registros[0].ToString());
+            connection.Close();
+            return idCliente;
+        }
+        public static void CheckOut()
+        {
+
+        }
+
     }
 }
