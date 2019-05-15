@@ -8,7 +8,7 @@ namespace HotelArrate
         static SqlConnection connection = new SqlConnection("Data source=DESKTOP-QEAKD04\\SQLEXPRESS;Initial Catalog=Hotel_Transilvania;Integrated Security=True");
         static void Main(string[] args)
         {
-
+            Menu();
         }
 
         public static void Menu()
@@ -34,6 +34,15 @@ namespace HotelArrate
             {
                 case 1:
                     RegistrarCliente();
+                    break;
+                case 2:
+                    //Se lo tengo que pedir antes para pasárselo por parámetro al método
+                    Console.WriteLine("Introduce tu DNI:");
+                    string dni = Console.ReadLine();
+                    EditarCliente(dni);
+                    break;
+                case 3:
+                    CheckIn();
                     break;
                 default:
                     Console.WriteLine("Agur!!!");
@@ -66,15 +75,17 @@ namespace HotelArrate
                 SqlCommand comando = new SqlCommand(query, connection);
                 comando.ExecuteNonQuery();
                 connection.Close();
+                Console.WriteLine("Usuario registrado");
                 //Le redirijo al menú
                 Menu();
 
             }
         }
 
-        
+  
         public static bool DNIExiste(string dni)
         {
+            connection.Open();
             string query = "SELECT * FROM CLIENTES WHERE DNI LIKE '" + dni + "'";
             SqlCommand command = new SqlCommand(query,connection);
             SqlDataReader registros = command.ExecuteReader();
@@ -82,14 +93,77 @@ namespace HotelArrate
             //Si lo ha leído es que el DNI existe por lo tanto devuelvo true 
             if (registros.Read())
             {
+                connection.Close();
                 return true;
             }
             else
             {
+                connection.Close();
                 //Si no existe devuelvo falso
                 return false;
             }
 
+        }
+
+        public static void EditarCliente(string dni)
+        {
+            //primero miro si el dni existe en la BBDD
+            //Si existe
+            if (DNIExiste(dni))
+            {
+                //Le vuelvo a pedir el nombre y el apellido
+                Console.WriteLine("Introduce el nombre nuevo");
+                string nombre = Console.ReadLine();
+                Console.WriteLine("Introduce el apellido nuevo");
+                string apellido = Console.ReadLine();
+
+                //y lo modifico
+                connection.Open();
+                string query = " UPDATE CLIENTES SET NOMBRE = '" + nombre + "', APELLIDO = '" + apellido + "' WHERE DNI LIKE'" + dni + "'";
+                SqlCommand comando = new SqlCommand(query, connection);
+                comando.ExecuteNonQuery();
+                connection.Close();
+                Console.WriteLine("Datos modificados con éxito.");
+                //Le redirijo al menú
+                Menu();
+            }
+            else
+            {
+                //Si el DNI no existe
+                Console.WriteLine("El DNI no existe, debe estar registrado para modificar sus datos.");
+                //Le redirijo al menú
+                Menu();
+            }
+        }
+        public static void CheckIn()
+        {
+            Console.WriteLine("Introduce tu DNI:");
+            string dni = Console.ReadLine();
+
+            //Vuelvo a comprobar que el dni está en la BBDD
+
+            if (DNIExiste(dni))
+            {
+                PrintHabitaciones();
+            }
+            else
+            {
+                Console.WriteLine("Debes estar registrado para reservar.");
+                //Le redirijo al menú
+                Menu();
+            }
+        }
+
+        public static void PrintHabitaciones()
+        {
+            Console.WriteLine("Habitaciones disponibles");
+            string query = "SELECT * FROM HABITACIONES WHERE ESTADO LIKE 'Libre'";
+            SqlCommand command = new SqlCommand(query, connection);
+            SqlDataReader registros = command.ExecuteReader();
+            while (registros.Read())
+            {
+                Console.WriteLine(registros[0].ToString());
+            }
         }
     }
 }
