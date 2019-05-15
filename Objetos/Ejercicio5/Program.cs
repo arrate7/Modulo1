@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace Ejercicio4
+namespace Ejercicio5
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Peso p = new Peso(50, "G");
+            ConversorMillas cm = new ConversorMillas(5);
         }
     }
 }

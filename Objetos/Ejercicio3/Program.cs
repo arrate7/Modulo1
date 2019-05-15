@@ -14,6 +14,9 @@ namespace Ejercicio3
                 satelite.VariaAltura(-5);
                 satelite.PrintPosicion();
             }
+
+            Satelite satelite2 = new Satelite();
+            satelite2.
         }
     }
 }
