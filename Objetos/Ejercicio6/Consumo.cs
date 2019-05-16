@@ -29,8 +29,32 @@ namespace Ejercicio6
 
         public void PrintConsumo()
         {
+
+            Console.WriteLine("Kms: " + Kms);
+            Console.WriteLine("Velocidad Media: " + Vmed);
+            Console.WriteLine("Litros: " + Litros);
+            Console.WriteLine("Tipo gasolina: " + Tipo);
             Console.WriteLine("Tiempo del viaje: " + GetTiempo());
             Console.WriteLine("Consumo medio del viaje: " + ConsumoMedio());
+            Console.WriteLine("Consumo en euros: " + ConsumoEuros());
+        }
+
+        public double ConsumoEuros()
+        {
+            const double GASOLINA95 = 1.14;
+            const double GASOLINA98 = 1.25;
+            const double DIESEL = 1.04;
+
+            switch (Tipo.ToLower())
+            {
+                case "gasolina98":
+                  return  ConsumoMedio() * GASOLINA98;
+                case "gasolina95":
+                    return ConsumoMedio() * GASOLINA95;
+                default:
+                    return ConsumoMedio() * DIESEL;
+                               
+            }
         }
     }
 }
