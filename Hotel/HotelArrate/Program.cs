@@ -44,6 +44,10 @@ namespace HotelArrate
                 case 3:
                     CheckIn();
                     break;
+                case 4:
+                    CheckOut();
+                    break;
+
                 default:
                     Console.WriteLine("Agur!!!");
                     break;
@@ -82,12 +86,12 @@ namespace HotelArrate
             }
         }
 
-  
+
         public static bool DNIExiste(string dni)
         {
             connection.Open();
             string query = "SELECT * FROM CLIENTES WHERE DNI LIKE '" + dni + "'";
-            SqlCommand command = new SqlCommand(query,connection);
+            SqlCommand command = new SqlCommand(query, connection);
             SqlDataReader registros = command.ExecuteReader();
 
             //Si lo ha leído es que el DNI existe por lo tanto devuelvo true 
@@ -155,6 +159,11 @@ namespace HotelArrate
                     //Y hago la reserva
                     Reservar(dni, idHabitacion);
                 }
+                else
+                {
+                    Console.WriteLine("La habitación seleccionada no está disponible");
+                    Menu();
+                }
 
             }
             else
@@ -170,11 +179,13 @@ namespace HotelArrate
             Console.WriteLine("Habitaciones disponibles");
             string query = "SELECT * FROM HABITACIONES WHERE ESTADO LIKE 'Libre'";
             SqlCommand command = new SqlCommand(query, connection);
+            connection.Open();
             SqlDataReader registros = command.ExecuteReader();
             while (registros.Read())
             {
-                Console.WriteLine(registros[0].ToString() + "     " + registros[0].ToString());
+                Console.WriteLine(registros[0].ToString() + "     " + registros[1].ToString());
             }
+            connection.Close();
             Console.WriteLine("******************************************************");
             Console.WriteLine("Selecciona una habitación:  ");
             Console.WriteLine();
@@ -184,14 +195,16 @@ namespace HotelArrate
         {
             string query = "SELECT * FROM HABITACIONES WHERE ESTADO LIKE 'Libre' And ID = " + idHabitacion;
             connection.Open();
-            SqlCommand command = new SqlCommand(query,connection);
+            SqlCommand command = new SqlCommand(query, connection);
             SqlDataReader registros = command.ExecuteReader();
             if (registros.Read())
             {
+                connection.Close();
                 return true;
             }
             else
             {
+                connection.Close();
                 return false;
             }
         }
@@ -232,8 +245,28 @@ namespace HotelArrate
         {
             Console.WriteLine("Introduce el dni:");
             string dni = Console.ReadLine();
-            //Llamo al método para buscar el id del cliente
-            int idCliente = BuscarIdCliente(dni);
+            //Miro si el dni existe
+            if (DNIExiste(dni))
+            {
+
+                //Llamo al método para buscar el id del cliente
+                int idCliente = BuscarIdCliente(dni);
+                //Llamo al método para buscar la reserva vinculada a ese cliente
+                int idReserva = BuscarReserva(idCliente);
+                //Modifico la reserva para añadirle la fecha de checkout
+
+                //Con el id de la reserva busco el id de la habitación reservada
+                int idHabitacion = BuscarHabitacion(idReserva);
+                //Con el id de la habitación la libero
+                LiberarHabitacion(idHabitacion);
+
+            }
+            else
+            {
+                Console.WriteLine("El DNI introducido no es correcto.");
+                Menu();
+            }
+
 
 
 
@@ -243,24 +276,42 @@ namespace HotelArrate
         {
             //Busco el id de la ultima reserva del cliente la cual todavia no tiene fecha de salida
             connection.Open();
-            string query = "SELECT IDReserva from Reservas where IDCliente = " + idCliente + " and FechaCheckOut = NULL";
+            string query = "SELECT ID from Reservas where IDCliente = " + idCliente + " and FechaCheckOut IS NULL";
             SqlCommand command = new SqlCommand(query, connection);
             SqlDataReader registros = command.ExecuteReader();
             registros.Read();
-
-            return Convert.ToInt32(registros[0].ToString());
+            int idReserva = Convert.ToInt32(registros[0].ToString());
+            connection.Close();
+            return idReserva;
 
         }
         public static int BuscarHabitacion(int idReserva)
         {
             //Busco el id de la habitacion mediante la reserva para pasarla luego a libre
             connection.Open();
-            string query = "SELECT IDHabitacion from Reservas where IDCHabitacion = " + idReserva;
+            string query = "SELECT IDHabitacion from Reservas where ID = " + idReserva;
             SqlCommand command = new SqlCommand(query, connection);
             SqlDataReader registros = command.ExecuteReader();
             registros.Read();
-
-            return Convert.ToInt32(registros[0].ToString());
+            int idHabitacion = Convert.ToInt32(registros[0].ToString());
+            connection.Close();
+            return idHabitacion;
+        }
+        public static void LiberarHabitacion(int idHabitacion)
+        {
+            connection.Open();
+            string query = "UPDATE Habitaciones SET Estado = 'Libre'WHERE ID = " + idHabitacion;
+            SqlCommand comando = new SqlCommand(query, connection);
+            comando.ExecuteNonQuery();
+            connection.Close();
+        }
+        public static void FechaCheckOut(int idReserva)
+        {
+            connection.Open();
+            string query = "UPDATE Reservas SET FechaCheckOut = GETDATE() WHERE ID = " + idReserva;
+            SqlCommand comando = new SqlCommand(query, connection);
+            comando.ExecuteNonQuery();
+            connection.Close();
         }
 
     }
