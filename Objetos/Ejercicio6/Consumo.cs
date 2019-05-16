@@ -14,7 +14,7 @@ namespace Ejercicio6
         public string GetTiempo()
         {
             double horas = Kms / Vmed;
-
+            
             int minutos = Convert.ToInt32((horas / 100) * 60);
             int segundos = Convert.ToInt32(minutos % 60);
             int h = Convert.ToInt32(Kms / Vmed);

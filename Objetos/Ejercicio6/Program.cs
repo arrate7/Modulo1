@@ -19,6 +19,7 @@ namespace Ejercicio6
             Coche c4 = new Coche()
             {
                 Marca = "Ferrari",
+                Modelo = "F40"
     
             };
 
