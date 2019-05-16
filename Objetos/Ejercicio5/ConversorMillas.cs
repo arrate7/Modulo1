@@ -6,11 +6,17 @@ namespace Ejercicio5
 {
     class ConversorMillas
     {
-        private double millas;
+        public double Distancia { get; set; }
 
-        public ConversorMillas(double millas)
+        public double MillasAMetros()
         {
-            this.millas = millas;
+            return Distancia * 1852;
         }
+
+        public double MillasAKilometros()
+        {
+            return Distancia * 1.852;
+        }
+
     }
 }

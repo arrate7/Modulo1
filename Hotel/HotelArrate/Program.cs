@@ -230,7 +230,37 @@ namespace HotelArrate
         }
         public static void CheckOut()
         {
+            Console.WriteLine("Introduce el dni:");
+            string dni = Console.ReadLine();
+            //Llamo al método para buscar el id del cliente
+            int idCliente = BuscarIdCliente(dni);
 
+
+
+
+        }
+        public static int BuscarReserva(int idCliente)
+        {
+            //Busco el id de la ultima reserva del cliente la cual todavia no tiene fecha de salida
+            connection.Open();
+            string query = "SELECT IDReserva from Reservas where IDCliente = " + idCliente + " and FechaCheckOut = NULL";
+            SqlCommand command = new SqlCommand(query, connection);
+            SqlDataReader registros = command.ExecuteReader();
+            registros.Read();
+
+            return Convert.ToInt32(registros[0].ToString());
+
+        }
+        public static int BuscarHabitacion(int idReserva)
+        {
+            //Busco el id de la habitacion mediante la reserva para pasarla luego a libre
+            connection.Open();
+            string query = "SELECT IDHabitacion from Reservas where IDCHabitacion = " + idReserva;
+            SqlCommand command = new SqlCommand(query, connection);
+            SqlDataReader registros = command.ExecuteReader();
+            registros.Read();
+
+            return Convert.ToInt32(registros[0].ToString());
         }
 
     }

@@ -41,6 +41,22 @@ namespace Objetos
             Console.WriteLine("Puertas: " + coche3.GetPuertas());
             Console.WriteLine("Caballos: " + coche3.GetCaballos());
             Console.WriteLine("Tipo: " + coche3.GetTipo());
+
+
+
+            Mascota m1 = new Mascota()
+            {
+                Raza = "Perro",
+                Nombre = "Nala"
+            };
+
+            Mascota m2 = new Mascota("Hamster","Gustavo");
+            //SET
+            m2.Nombre = "Milu";
+            m2.Raza = "Gato";
+            //GET
+            string raza = m2.Raza;
+            Console.WriteLine(m2.Raza + " " + m2.Nombre);
         }
     }
 }

@@ -16,7 +16,9 @@ namespace Ejercicio3
             }
 
             Satelite satelite2 = new Satelite();
-            satelite2.
+            
+
+            
         }
     }
 }
