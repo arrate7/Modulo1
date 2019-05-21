@@ -19,6 +19,7 @@ namespace Herencia
             foreach (Vehiculo vehiculo in garaje)
             {
                 vehiculo.MostrarDatos();
+               
             }
                 
 
