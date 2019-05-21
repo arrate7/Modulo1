@@ -18,5 +18,14 @@ namespace Herencia
             base.Arrancar();
             Console.WriteLine("Mueve la pala hacia " + direccion);
         }
+
+        public override void MostrarDatos()
+        {
+            base.MostrarDatos();
+            Console.WriteLine("Peso máximo de levante: " + PML);
+            Console.WriteLine("***********************************");
+
+        }
+
     }
 }

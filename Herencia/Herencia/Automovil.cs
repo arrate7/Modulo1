@@ -18,5 +18,14 @@ namespace Herencia
             base.Arrancar();
             Console.WriteLine("Acelera " + cuanto + " km/h");
         }
+        public override void MostrarDatos()
+        {
+            base.MostrarDatos();
+            Console.WriteLine("Puertas: " + Puertas);
+            Console.WriteLine("***********************************");
+        }
+
+
+
     }
 }

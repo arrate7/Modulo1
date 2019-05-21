@@ -21,5 +21,13 @@ namespace Herencia
         {
             Console.WriteLine("Vehículo se detiene.");
         }
+
+        public virtual void MostrarDatos()
+        {
+
+            Console.WriteLine("Caballos del vehículo: " + CaballosFuerza);
+        }
+
+      
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Herencia
 {
@@ -10,9 +11,17 @@ namespace Herencia
             Automovil a1 = new Automovil(5,120);
             PalaMecanica p1 = new PalaMecanica(50,40);
 
-            a1.Acelerar(80);
-            a1.Detener();
-            p1.MoverPala("derecha");
+            List<Vehiculo> garaje = new List<Vehiculo>()
+            {
+                v1,a1,p1
+            };
+
+            foreach (Vehiculo vehiculo in garaje)
+            {
+                vehiculo.MostrarDatos();
+            }
+                
+
         }
     }
 }
